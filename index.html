@@ -1,279 +1,362 @@
 <!DOCTYPE html>
+
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Правовая информация — NOTA VPN</title>
-
-<script src="https://cdn.tailwindcss.com"></script>
-
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="#070709" name="theme-color"/>
+<meta content="Условия использования ASKA VPN: правила сервиса, ограничения, ответственность и порядок изменения условий." name="description"/>
+<title>Условия использования — ASKA VPN</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <style>
-:root{
-    color-scheme: dark;
-}
-
-body{
-    background:
-        radial-gradient(circle at top, rgba(56,189,248,.08), transparent 30%),
-        linear-gradient(180deg,#05070a 0%,#080b11 100%);
-    color:white;
-    font-family:Inter,ui-sans-serif,system-ui,sans-serif;
-}
-
-.glass{
-    background:rgba(13,17,23,.72);
-    border:1px solid rgba(255,255,255,.06);
-    backdrop-filter:blur(14px);
-    -webkit-backdrop-filter:blur(14px);
-}
-
-.policy h2{
-    font-size:1.2rem;
-    font-weight:700;
-    margin-top:2.2rem;
-    margin-bottom:1rem;
-    color: #f8fafc;
-}
-
-.policy p{
-    color:#cbd5e1;
-    line-height:1.9;
-    margin-bottom:1rem;
-    font-size: 0.95rem;
-}
-
-.policy ul{
-    margin-top:.5rem;
-    margin-bottom:1rem;
-    padding-left:1.2rem;
-    color:#cbd5e1;
-    font-size: 0.95rem;
-}
-
-.policy li{
-    margin-bottom:.6rem;
-    line-height:1.8;
-}
-
-.policy strong {
-    color: #f1f5f9;
-}
+    :root {
+      color-scheme: dark;
+      --bg: #070709;
+      --surface: #101014;
+      --surface-2: #16161c;
+      --border: rgba(255,255,255,.08);
+      --border-strong: rgba(255,255,255,.16);
+      --text: #f4f4f5;
+      --muted: #9696a1;
+      --dim: #62626e;
+      --red: #e11d48;
+      --red-bright: #ff2d5e;
+      --red-dim: rgba(225,29,72,.12);
+      --orange: #f97316;
+      --radius: 6px;
+      --radius-lg: 10px;
+      --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+      --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+    body { margin: 0; min-height: 100vh; background: var(--bg); color: var(--text); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+    body::before { content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none; background-image: linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px); background-size: 40px 40px; mask-image: radial-gradient(circle at 50% 25%,#000 26%,transparent 88%); -webkit-mask-image: radial-gradient(circle at 50% 25%,#000 26%,transparent 88%); }
+    body::after { content: ''; position: fixed; top: -360px; left: 50%; transform: translateX(-50%); width: min(980px, 140vw); height: 850px; background: radial-gradient(circle,rgba(225,29,72,.125) 0%,rgba(225,29,72,.025) 43%,transparent 73%); filter: blur(22px); pointer-events: none; z-index: 0; }
+    ::selection { background: rgba(225,29,72,.45); color: white; }
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--red-bright); outline-offset: 4px; }
+    .noise { position: fixed; inset: 0; z-index: 8; pointer-events: none; opacity: .035; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+    .progress { position: fixed; top: 0; left: 0; width: 0; height: 2px; background: var(--red-bright); box-shadow: 0 0 14px rgba(255,45,94,.7); z-index: 30; pointer-events: none; }
+    .wrap { width: min(1100px, calc(100% - 48px)); margin: auto; position: relative; z-index: 1; }
+    .header { min-height: 80px; padding: 20px 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; flex-shrink: 0; }
+    .hazard { width: 4px; height: 36px; background: repeating-linear-gradient(-45deg,var(--red) 0,var(--red) 4px,transparent 4px,transparent 8px); }
+    .brand-text { display: grid; gap: 3px; }
+    .brand-main { font: 700 1.15rem/1 var(--mono); letter-spacing: .05em; color: #fff; }
+    .accent { color: var(--red); }
+    .brand-sub { font: 500 .61rem/1.2 var(--mono); letter-spacing: .15em; color: var(--muted); text-transform: uppercase; }
+    .nav { display: flex; align-items: center; gap: 8px; }
+    .nav-link { padding: 9px 13px; border: 1px solid transparent; border-radius: var(--radius); font: 500 .72rem/1.4 var(--mono); letter-spacing: .05em; color: var(--muted); text-decoration: none; text-transform: uppercase; white-space: nowrap; transition: color .18s, border-color .18s, background .18s; }
+    .nav-link:hover { color: var(--text); border-color: var(--border-strong); }
+    .nav-link--accent { color: var(--red-bright); border-color: rgba(225,29,72,.3); background: var(--red-dim); }
+    .nav-link--accent:hover { background: rgba(225,29,72,.2); border-color: var(--red); color: #fff; }
+    .hero { padding: 68px 0 38px; text-align: center; }
+    .hero-tag { display: inline-flex; gap: 8px; align-items: center; margin-bottom: 23px; padding: 7px 12px; font: 600 .66rem/1 var(--mono); letter-spacing: .18em; text-transform: uppercase; color: var(--red-bright); background: rgba(225,29,72,.06); border: 1px solid rgba(225,29,72,.28); border-radius: var(--radius); }
+    .hero-tag::before { content: ''; display: block; width: 6px; height: 6px; border-radius: 50%; background: var(--red); box-shadow: 0 0 9px var(--red); animation: pulse 2s ease-in-out infinite; }
+    @keyframes pulse { 50% { opacity: .4; } }
+    h1,h2,h3,p { margin-top: 0; }
+    .hero h1 { font-size: clamp(2rem, 6vw, 3.75rem); line-height: 1.09; letter-spacing: -.042em; font-weight: 800; margin: 0 0 18px; }
+    .hero h1 span { display: block; }
+    .hero h1 .secondary { color: var(--red); text-shadow: 0 0 40px rgba(225,29,72,.35); }
+    .hero-sub { margin: 0 auto 22px; max-width: 640px; line-height: 1.7; font-size: .92rem; color: var(--muted); }
+    .hero-meta { display: flex; gap: 8px 20px; justify-content: center; flex-wrap: wrap; font: 500 .66rem/1.5 var(--mono); color: var(--dim); letter-spacing: .07em; text-transform: uppercase; }
+    .hero-meta b { color: #c5c5cc; font-weight: 600; }
+    .summary { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin: 12px 0 30px; }
+    .summary-item { position: relative; overflow: hidden; padding: 16px 18px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); }
+    .summary-item::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 1px; background: linear-gradient(90deg,var(--red),transparent); }
+    .summary-label { margin-bottom: 9px; color: var(--muted); font: 600 .59rem/1.3 var(--mono); letter-spacing: .15em; text-transform: uppercase; }
+    .summary-value { color: #fff; font: 700 1rem/1.3 var(--mono); letter-spacing: -.025em; }
+    .summary-value.red { color: var(--red-bright); }
+    .notice { display: flex; gap: 13px; align-items: flex-start; padding: 16px 18px; margin-bottom: 29px; background: rgba(225,29,72,.075); border: 1px solid rgba(225,29,72,.27); border-left: 3px solid var(--red); border-radius: var(--radius); }
+    .notice-icon { color: var(--red-bright); font: 700 1.05rem/1.5 var(--mono); }
+    .notice-title { font: 700 .73rem/1.6 var(--mono); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 4px; color: #fff; }
+    .notice p { color: #bbb9c2; font-size: .82rem; line-height: 1.65; margin: 0; }
+    .layout { display: grid; grid-template-columns: 238px minmax(0,1fr); align-items: start; gap: 24px; }
+    .side { position: sticky; top: 24px; }
+    .side-box { border: 1px solid var(--border); background: rgba(16,16,20,.89); border-radius: var(--radius-lg); padding: 18px 14px; }
+    .side-heading { display: flex; align-items: center; gap: 9px; font: 600 .64rem/1.4 var(--mono); letter-spacing: .13em; color: var(--muted); text-transform: uppercase; margin: 0 8px 15px; }
+    .side-heading::before { content: '◢'; color: var(--red); }
+    .toc { display: grid; gap: 4px; }
+    .toc a { display: flex; gap: 12px; align-items: center; border: 1px solid transparent; border-radius: 5px; color: var(--muted); text-decoration: none; padding: 11px 10px; font-size: .75rem; line-height: 1.5; transition: color .18s, background .18s, border-color .18s; }
+    .toc a span { color: var(--dim); font: 700 .65rem/1.5 var(--mono); flex: 0 0 20px; }
+    .toc a:hover { color: white; background: rgba(255,255,255,.025); }
+    .toc a.active { color: white; background: var(--red-dim); border-color: rgba(225,29,72,.22); }
+    .toc a.active span { color: var(--red-bright); }
+    .side-foot { margin: 17px 9px 2px; padding-top: 15px; border-top: 1px solid var(--border); color: var(--dim); font: 500 .64rem/1.7 var(--mono); }
+    .side-foot a { display: inline-block; margin-top: 6px; color: var(--red-bright); text-decoration: none; }
+    .policy { min-width: 0; }
+    .section-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-bottom: 14px; border-bottom: 1px solid var(--border); margin-bottom: 16px; }
+    .section-head .section-label { font: 600 .67rem/1.4 var(--mono); letter-spacing: .14em; color: var(--muted); text-transform: uppercase; }
+    .section-head .section-label::before { content: '◢'; color: var(--red); margin-right: 10px; }
+    .section-head .section-count { font: 500 .65rem/1.3 var(--mono); color: var(--dim); }
+    .clause { position: relative; overflow: hidden; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); margin-bottom: 12px; scroll-margin-top: 24px; transition: border-color .2s, background .2s; }
+    .clause:hover, .clause:target { border-color: var(--border-strong); }
+    .clause:target { box-shadow: inset 3px 0 0 var(--red); }
+    .clause-top { display: flex; gap: 17px; align-items: flex-start; padding: 23px 26px 16px; border-bottom: 1px solid var(--border); background: linear-gradient(115deg,rgba(255,255,255,.025),transparent 70%); }
+    .clause-num { width: 42px; height: 42px; flex-shrink: 0; border-radius: 6px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(225,29,72,.27); background: var(--red-dim); color: var(--red-bright); font: 700 1rem/1 var(--mono); }
+    .clause-eyebrow { color: var(--dim); font: 500 .62rem/1.5 var(--mono); letter-spacing: .12em; text-transform: uppercase; margin: 0 0 4px; }
+    .clause h2 { color: #fff; font-size: clamp(1.05rem,2.4vw,1.24rem); line-height: 1.5; letter-spacing: -.015em; font-weight: 700; margin: 0; }
+    .clause-body { padding: 20px 26px 22px; }
+    .clause-body p, .clause-body li { color: #b8b8c1; font-size: .87rem; line-height: 1.83; }
+    .clause-body p { margin: 0 0 13px; }
+    .clause-body p:last-child { margin-bottom: 0; }
+    .clause-body strong { color: #fff; font-weight: 600; }
+    .clause-body ul { list-style: none; margin: 12px 0 17px; padding: 0; display: grid; gap: 9px; }
+    .clause-body ul:last-child { margin-bottom: 0; }
+    .clause-body li { position: relative; padding: 10px 13px 10px 28px; margin: 0; background: var(--surface-2); border: 1px solid rgba(255,255,255,.045); border-radius: 5px; }
+    .clause-body li::before { content: ''; position: absolute; left: 13px; top: 21px; width: 5px; height: 5px; background: var(--red); transform: rotate(45deg); }
+    .clause-body a { color: var(--red-bright); text-decoration: none; border-bottom: 1px solid rgba(225,29,72,.3); }
+    .clause-body a:hover { border-bottom-color: var(--red-bright); }
+    .clause-note { color: var(--muted); padding: 12px 15px; margin-top: 16px; border-left: 2px solid var(--red); background: rgba(225,29,72,.045); font-size: .81rem; line-height: 1.7; }
+    .closing { padding: 26px; margin: 28px 0 42px; border: 1px solid rgba(225,29,72,.24); border-radius: var(--radius-lg); background: radial-gradient(circle at 100% 0%,rgba(225,29,72,.10),transparent 48%),var(--surface); }
+    .closing-kicker { color: var(--red-bright); font: 700 .65rem/1.5 var(--mono); letter-spacing: .14em; margin-bottom: 9px; text-transform: uppercase; }
+    .closing h2 { font-size: 1.25rem; line-height: 1.4; margin: 0 0 9px; }
+    .closing p { color: var(--muted); font-size: .84rem; line-height: 1.7; margin: 0 0 18px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 9px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 18px; border-radius: var(--radius); border: 1px solid transparent; font: 600 .73rem/1.3 var(--mono); text-decoration: none; text-transform: uppercase; letter-spacing: .05em; cursor: pointer; transition: transform .18s, background .18s, border-color .18s; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn--primary { color: #fff; background: var(--red); border-color: var(--red); box-shadow: 0 0 26px rgba(225,29,72,.22); }
+    .btn--primary:hover { background: var(--red-bright); border-color: var(--red-bright); }
+    .btn--outline { color: #eee; background: transparent; border-color: var(--border-strong); }
+    .btn--outline:hover { border-color: var(--muted); background: rgba(255,255,255,.03); }
+    .footer { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; border-top: 1px solid var(--border); padding: 25px 0 40px; }
+    .footer-meta { color: var(--dim); font: 500 .66rem/1.6 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+    .footer-links { display: flex; align-items: center; flex-wrap: wrap; gap: 20px; }
+    .footer-links a { color: var(--muted); font: 500 .67rem/1.6 var(--mono); text-decoration: none; letter-spacing: .07em; text-transform: uppercase; }
+    .footer-links a:hover { color: var(--text); }
+    @media (max-width: 920px) { .layout { grid-template-columns: 205px minmax(0,1fr); gap: 16px; } .clause-top { padding: 19px 20px 15px; } .clause-body { padding: 17px 20px 20px; } }
+    @media (max-width: 720px) {
+      .wrap { width: min(100% - 32px, 1100px); }
+      .header { gap: 10px; padding: 15px 0; min-height: 70px; }
+      .nav { gap: 3px; }
+      .nav-link { font-size: .65rem; padding: 8px 9px; }
+      .brand-main { font-size: 1.02rem; }
+      .brand-sub { font-size: .53rem; }
+      .hero { padding: 46px 0 29px; }
+      .summary { margin-bottom: 20px; }
+      .summary-item { padding: 13px 12px; }
+      .summary-value { font-size: .89rem; }
+      .layout { display: block; }
+      .side { position: static; margin-bottom: 22px; }
+      .side-box { padding: 12px; }
+      .toc { display: flex; overflow-x: auto; gap: 6px; padding-bottom: 3px; scrollbar-width: thin; }
+      .toc a { flex: 0 0 auto; white-space: nowrap; padding: 9px 11px; font-size: .7rem; }
+      .side-heading { margin-bottom: 9px; }
+      .side-foot { display: none; }
+    }
+    @media (max-width: 430px) {
+      .wrap { width: calc(100% - 28px); }
+      .header { align-items: flex-start; }
+      .nav-link:first-child { display: none; }
+      .nav-link { padding: 8px 7px; }
+      .hero h1 { font-size: clamp(2.0rem, 9vw, 2.55rem); }
+      .hero-sub { font-size: .84rem; }
+      .hero-meta { font-size: .58rem; }
+      .summary { gap: 6px; }
+      .summary-item { padding: 11px 8px; }
+      .summary-label { font-size: .52rem; letter-spacing: .08em; }
+      .summary-value { font-size: .74rem; overflow-wrap: anywhere; }
+      .clause-top { gap: 10px; padding: 17px 14px 13px; }
+      .clause-num { width: 36px; height: 36px; font-size: .88rem; }
+      .clause-body { padding: 17px 14px 19px; }
+      .clause-body p, .clause-body li { font-size: .82rem; }
+      .closing { padding: 20px 16px; }
+      .btn { width: 100%; }
+      .footer { align-items: flex-start; }
+    }
+    @media (max-width: 360px) { .brand-sub { display: none; } .brand-main { font-size: .96rem; } .nav-link { font-size: .59rem; padding: 7px 6px; } .hazard { height: 29px; } }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *,*::before,*::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+  
+@media (max-width: 480px) { .summary { grid-template-columns: 1fr 1fr; } .summary-item:last-child { grid-column: 1 / -1; } .summary-value { font-size: .9rem; } }
 </style>
 </head>
-
-<body class="min-h-screen">
-
-<main class="max-w-4xl mx-auto px-4 py-8 sm:py-14">
-
-    <!-- HEADER -->
-    <section class="mb-8">
-        <div class="glass rounded-3xl p-6 sm:p-10">
-
-            <div class="inline-flex items-center gap-2 rounded-full bg-white/5 px-4 py-2 text-xs uppercase tracking-[0.25em] text-slate-400">
-                NOTA VPN
-            </div>
-
-            <h1 class="mt-6 text-3xl sm:text-5xl font-black tracking-tight" id="main-title">
-                Правовая информация
-            </h1>
-
-            <p class="mt-6 text-slate-300 leading-8 text-sm sm:text-base">
-                Официальные документы, регулирующие порядок обработки данных, конфиденциальность и условия предоставления доступа к бесплатному сервису NOTA VPN (NotAVPN) через Telegram-бот <span class="text-sky-400">@nota_vpn_bot</span>.
-            </p>
-
-            <div class="mt-6 text-sm text-slate-500 flex flex-wrap gap-4 items-center">
-                <span>Последнее обновление: <strong>30 июля 2026 г.</strong></span>
-                <span class="inline-block w-1 h-1 rounded-full bg-slate-600"></span>
-                <span>Регион применения: <strong>РФ и международное право</strong></span>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- NAVIGATION TABS -->
-    <div class="flex flex-col sm:flex-row gap-3 mb-6">
-        <button id="tab-privacy-btn" onclick="switchTab('privacy')" 
-            class="flex-1 py-3.5 px-6 rounded-2xl font-semibold text-sm transition-all duration-300 bg-sky-500 text-white shadow-lg shadow-sky-500/25 border border-sky-400/30 text-center">
-            Политика конфиденциальности
-        </button>
-        <button id="tab-terms-btn" onclick="switchTab('terms')" 
-            class="flex-1 py-3.5 px-6 rounded-2xl font-semibold text-sm transition-all duration-300 bg-white/5 text-slate-400 hover:text-white hover:bg-white/10 border border-white/5 text-center">
-            Условия использования (Terms of Use)
-        </button>
-    </div>
-
-    <!-- CONTENT: PRIVACY POLICY -->
-    <section id="privacy-section" class="glass rounded-3xl p-6 sm:p-10 policy">
-
-        <div class="mb-6 p-4 rounded-2xl bg-sky-500/10 border border-sky-500/20 text-xs text-sky-300">
-            Данная редакция Политики конфиденциальности учитывает нормативно-правовую базу РФ (включая ФЗ-149 «Об информации...», ФЗ-152 «О персональных данных») и актуальные технические условия работы регуляторов (РКН/ТСПУ).
-        </div>
-
-        <h2>1. Общие положения</h2>
-        <p>
-            Настоящая Политика конфиденциальности определяет порядок обработки, хранения и защиты информации пользователей при использовании бесплатного сервиса NOTA VPN (включая бот @nota_vpn_bot и сопутствующие серверные узлы).
-        </p>
-        <p>
-            Сервис функционирует на некоммерческой основе. Используя бот или конфигурации подключения, Пользователь безоговорочно принимает условия настоящей Политики.
-        </p>
-
-        <h2>2. Собираемая и обрабатываемая информация</h2>
-        <p>
-            В целях обеспечения работоспособности, сетевой безопасности и защиты от спама/DDoS-атак сервис может обрабатывать ограниченный набор технических данных:
-        </p>
-        <ul>
-            <li><strong>Идентификатор Telegram (Telegram ID):</strong> используется для привязки ключей доступа и авторизации Пользователя;</li>
-            <li><strong>Служебная техническая телеметрия:</strong> временные метки сессий, объем переданного трафика (в агрегированном виде без привязки к посещенным ресурсам);</li>
-            <li><strong>Сетевые данные:</strong> анонимизированные или временные технические IP-адреса узлов подключения, необходимые для работы протоколов маршрутизации.</li>
-        </ul>
-
-        <h2>3. Отсутствие логов активности (No-Logs Policy)</h2>
-        <p>
-            Сервис NOTA VPN соблюдает строгий принцип минимизации данных. Мы **НЕ собираем, НЕ отслеживаем и НЕ сохраняем**:
-        </p>
-        <ul>
-            <li>Историю посещенных веб-сайтов, страниц и IP-адресов назначения;</li>
-            <li>Содержимое передаваемого пользовательского трафика или сообщений;</li>
-            <li>DNS-запросы Пользователя;</li>
-            <li>Пароли, персональные данные, платежная или банковская информация.</li>
-        </ul>
-
-        <h2>4. Правовые аспекты и исполнение законодательства</h2>
-        <p>
-            Администрация сервиса уважает действующее законодательство Российской Федерации и иных юрисдикций. Сервис не предназначен для осуществления противоправной деятельности.
-        </p>
-        <p>
-            В связи с отсутствием хранения логов активности и персональных данных Пользователей, Администрация объективно не располагает технической возможностью предоставить третьим лицам или государственным органам данные о действиях конкретных пользователей в сети Интернет.
-        </p>
-
-        <h2>5. Безопасность и защита данных</h2>
-        <p>
-            Передаваемый через сервис трафик шифруется с использованием современных стойких протоколов. Администрация принимает необходимые организационные и технические меры для защиты служебных данных (Telegram ID, конфигурационные ключи) от несанкционированного доступа.
-        </p>
-
-        <h2>6. Ограничения работы в связи с блокировками (РКН / ТСПУ)</h2>
-        <p>
-            Пользователь принимает к сведению, что надзорные органы (включая Роскомнадзор) и операторы связи в РФ применяют средства ТСПУ (DPI) для блокировки и ограничения работы VPN-протоколов и IP-адресов. Сервис не гарантирует бесперебойный доступ в условиях активного фильтрации трафика регуляторами.
-        </p>
-
-        <h2>7. Контакты</h2>
-        <p>
-            По вопросам работы сервиса и настоящей Политики обращаться через официальный бот в Telegram: <strong>@nota_vpn_bot</strong>.
-        </p>
-
-    </section>
-
-    <!-- CONTENT: TERMS OF USE -->
-    <section id="terms-section" class="glass rounded-3xl p-6 sm:p-10 policy hidden">
-
-        <div class="mb-6 p-4 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-xs text-amber-300">
-            <strong>ВНИМАНИЕ:</strong> Настоящие Условия использования содержат жесткие ограничения ответственности Администрации и правила использования бесплатного сервиса NotAVPN. Пожалуйста, внимательно ознакомьтесь с ними.
-        </div>
-
-        <h2>1. Статус сервиса и условие «КАК ЕСТЬ» (AS IS)</h2>
-        <p>
-            1.1. Сервис NOTA VPN (NotAVPN) предоставляется Пользователю **абсолютно бесплатно**, на добровольной основе и исключительно на условиях **«КАК ЕСТЬ» (AS IS)** и **«ПО МЕРЕ ДОСТУПНОСТИ» (AS AVAILABLE)**.
-        </p>
-        <p>
-            1.2. Администрация не гарантирует:
-        </p>
-        <ul>
-            <li>Непрерывность, стабильность, высокую скорость или отсутствие сбоев в работе сервиса;</li>
-            <li>Совместимость сервиса с оборудованием или программным обеспечением Пользователя;</li>
-            <li>Защищенность сервиса от блокировок со стороны Роскомнадзора, провайдеров связи или технических средств ТСПУ.</li>
-        </ul>
-        <p>
-            1.3. К сервису **не применяются** любые соглашения об уровне обслуживания (SLA). Сервис может быть временно или полностью приостановлен в любой момент без предварительного уведомления.
-        </p>
-
-        <h2>2. Запрещенная деятельность (Strict Misuse Policy)</h2>
-        <p>
-            При использовании NOTA VPN Пользователю категорически **ЗАПРЕЩАЕТСЯ**:
-        </p>
-        <ul>
-            <li>Использовать сервис для совершения любых действий, нарушающих законодательство РФ или страны нахождения сервера;</li>
-            <li>Совершать кибератаки, DDoS-атаки, сканирование портов, фишинг, распространение вредоносного ПО или спама;</li>
-            <li>Распространять материалы, содержащие призывы к экстремизму, терроризму, детскую порнографию и иной запрещенный законодательством контент;</li>
-            <li>Нарушать авторские и смежные права (включая массовую нелицензионную P2P/Torrent-загрузку, если она создает критическую нагрузку на узлы);</li>
-            <li>Перепродавать, коммерциализировать или публично распространять персональные ключи доступа, полученные в бота @nota_vpn_bot.</li>
-        </ul>
-
-        <h2>3. Позиция в отношении ограничений доступа и законов РФ</h2>
-        <p>
-            3.1. Сервис NOTA VPN предназначен исключительно для обеспечения безопасности, шифрования трафика в публичных сетях Wi-Fi и защиты приватности.
-        </p>
-        <p>
-            3.2. Сервис **не предназначен и не рекламируется** как средство для умышленного обхода законных блокировок и популяризации доступа к ресурсам, ограниченным на территории РФ в соответствии с ФЗ № 149-ФЗ.
-        </p>
-
-        <h2>4. Одностороннее право блокировки</h2>
-        <p>
-            4.1. Администрация оставляет за собой право **мгновенно, без предварительного предупреждения и без объяснения причин** заблокировать доступ к сервису (аннулировать ключ доступа / заблокировать Telegram ID) для любого Пользователя.
-        </p>
-        <p>
-            4.2. Основанием для блокировки может служить: аномально высокий трафик (подозрение на ботнет/скрапинг), жалобы (abuse-report) от дата-центров, подозрение в противоправных действиях или нарушении настоящих Условий.
-        </p>
-
-        <h2>5. Полное освобождение от ответственности</h2>
-        <p>
-            5.1. Пользователь несет **полную личную юридическую и административную ответственность** за все действия, совершенные с использованием предоставленного ему подключения.
-        </p>
-        <p>
-            5.2. Администрация сервиса не несет ответственности за:
-        </p>
-        <ul>
-            <li>Любой прямой, косвенный, случайный или вытекающий ущерб (включая упущенную выгоду, потерю данных), возникший в результате использования или невозможности использования сервиса;</li>
-            <li>Блокировку IP-адресов или протоколов сервиса государственными органами (РКН, ТСПУ);</li>
-            <li>Действия третьих лиц, операторов связи, хостинг-провайдеров и интернет-сервисов.</li>
-        </ul>
-
-        <h2>6. Порядок изменения Условий</h2>
-        <p>
-            Администрация вправе в одностороннем порядке изменять настоящие Условия в любой момент. Продолжение использования бота @nota_vpn_bot или VPN-подключения после публикации изменений означает полное согласие Пользователя с новой редакцией.
-        </p>
-
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="mt-8 text-center text-xs text-slate-500">
-        © 2026 NOTA VPN. Все права защищены. Бесплатный сервис для защиты приватности.
-    </footer>
-
+<body>
+<div aria-hidden="true" class="progress" id="progress"></div>
+<div aria-hidden="true" class="noise"></div>
+<div class="wrap" id="top">
+<header class="header">
+<a aria-label="ASKA VPN — главная" class="brand" href="https://gate-v1.aska.not-a-projects.xyz/">
+<span aria-hidden="true" class="hazard"></span>
+<span class="brand-text">
+<span class="brand-main">ASKA<span class="accent">.</span>VPN</span>
+<span class="brand-sub">Secure Tunnel // Unit-02</span>
+</span>
+</a>
+<nav aria-label="Основная навигация" class="nav">
+<a class="nav-link" href="https://gate-v1.aska.not-a-projects.xyz/">Главная</a>
+<a class="nav-link" href="https://status.aska.not-a-projects.xyz/" rel="noopener noreferrer" target="_blank">Статус</a>
+<a class="nav-link nav-link--accent" href="https://t.me/askavpn_bot" rel="noopener noreferrer" target="_blank">Telegram</a>
+</nav>
+</header>
+<main>
+<section aria-labelledby="page-title" class="hero">
+<div class="hero-tag">Legal Protocol // 01</div>
+<h1 id="page-title"><span>УСЛОВИЯ</span><span class="secondary">ИСПОЛЬЗОВАНИЯ</span></h1>
+<p class="hero-sub">Самостоятельные правила ASKA VPN для бесплатного и платного доступа: требования законодательства РФ, строгие запреты, порядок блокировок и условия использования инфраструктуры.</p>
+<div class="hero-meta"><span>Документ: <b>Terms of Use</b></span><span>Редакция: <b>02 / 23.11.2026</b></span><span>Язык: <b>RU</b></span></div>
+</section>
+<div aria-label="Кратко об условиях" class="summary">
+<div class="summary-item"><div class="summary-label">Access Plans</div><div class="summary-value">FREE / PREMIUM</div></div>
+<div class="summary-item"><div class="summary-label">Legal Compliance</div><div class="summary-value red">RU LAW</div></div>
+<div class="summary-item"><div class="summary-label">Policy Sections</div><div class="summary-value">10 <span style="color:var(--dim)">/ RULES</span></div></div>
+</div>
+<div class="notice" role="note">
+<div aria-hidden="true" class="notice-icon">!</div>
+<div>
+<div class="notice-title">Внимание // ознакомьтесь перед подключением</div>
+<p>Для бесплатного и платного доступа действуют единые строгие запреты. Оплата тарифа не даёт права на спам, атаки, перепродажу ключей и другую противоправную деятельность. Обязательные права потребителей сохраняются.</p>
+</div>
+</div>
+<div class="layout">
+<aside aria-label="Содержание документа" class="side">
+<div class="side-box">
+<div class="side-heading">Содержание // Index</div>
+<nav aria-label="Разделы условий использования" class="toc" id="toc"><a class="active" href="#section-1"><span>01</span>Общие положения</a><a class="" href="#section-2"><span>02</span>Тарифы и доступ</a><a class="" href="#section-3"><span>03</span>Законодательство РФ</a><a class="" href="#section-4"><span>04</span>Запрещённые действия</a><a class="" href="#section-5"><span>05</span>Нагрузка и безопасность</a><a class="" href="#section-6"><span>06</span>Ограничение доступа</a><a class="" href="#section-7"><span>07</span>Оплата и возвраты</a><a class="" href="#section-8"><span>08</span>Доступность</a><a class="" href="#section-9"><span>09</span>Данные пользователя</a><a class="" href="#section-10"><span>10</span>Ответственность и изменения</a></nav>
+<div class="side-foot">ASKA VPN // LEGAL<br/>Для вопросов по условиям:<br/><a href="https://t.me/askavpn_bot" rel="noopener noreferrer" target="_blank">@askavpn_bot ↗</a></div>
+</div>
+</aside>
+<div class="policy"><article class="clause" id="section-1">
+<header class="clause-top"><div class="clause-num">01</div><div><p class="clause-eyebrow">Agreement / Scope</p><h2>Общие положения и принятие правил</h2></div></header>
+<div class="clause-body">
+<p><strong>1.1.</strong> ASKA VPN (далее — «Сервис») предоставляет доступ к сетевой инфраструктуре и защищённым соединениям через персональные конфигурации, распространяемые в том числе через официальный Telegram-бот <a href="https://t.me/askavpn_bot" rel="noopener noreferrer" target="_blank">@askavpn_bot</a>.</p>
+<p><strong>1.2.</strong> Настоящие Условия распространяются на <strong>всех пользователей — как бесплатных, так и платных тарифов</strong>. Получая конфигурацию, подключаясь к Сервису или оплачивая тариф, пользователь подтверждает ознакомление с правилами и обязанность соблюдать применимое законодательство.</p>
+<p><strong>1.3.</strong> Доступ предоставляется персонально. Пользователь обязан обеспечить конфиденциальность своей ссылки подписки, ключей и иных данных авторизации. Любые действия с его подключением считаются совершёнными с его использованием, если не доказано иное.</p>
+<div class="clause-note">ASKA VPN не предоставляет пользователю никаких прав на серверы, IP-адреса, программное обеспечение или иные элементы инфраструктуры, кроме разрешённого доступа на условиях выбранного тарифа.</div>
+</div>
+</article><article class="clause" id="section-2">
+<header class="clause-top"><div class="clause-num">02</div><div><p class="clause-eyebrow">Access / Plans</p><h2>Бесплатный и платный доступ</h2></div></header>
+<div class="clause-body">
+<p><strong>2.1.</strong> В Сервисе предусмотрены <strong>бесплатный (FREE)</strong> и <strong>платный (PREMIUM)</strong> тарифы. Они могут отличаться скоростью, доступными локациями, ограничениями трафика, количеством подключений, сроком действия и другими параметрами.</p>
+<p><strong>2.2.</strong> Актуальные возможности, ограничения, стоимость и срок платного тарифа указываются <strong>в Telegram-боте до оформления заказа</strong>. Если для конкретного тарифа предусмотрены дополнительные правила, они доводятся до пользователя до подключения или оплаты.</p>
+<p><strong>2.3.</strong> Бесплатный тариф предоставляется при наличии свободных ресурсов; его параметры могут изменяться без предварительного уведомления. Для платного тарифа действуют условия, заявленные при покупке, с учётом технических ограничений и обязательных норм законодательства.</p>
+<p><strong>2.4.</strong> Платный доступ не означает приобретения выделенного сервера, гарантированного IP-адреса, безлимитной нагрузки или иммунитета от блокировок. Передача либо перепродажа конфигураций третьим лицам запрещена без отдельного разрешения Администрации.</p>
+</div>
+</article><article class="clause" id="section-3">
+<header class="clause-top"><div class="clause-num">03</div><div><p class="clause-eyebrow">Legal / Compliance</p><h2>Соблюдение законодательства РФ</h2></div></header>
+<div class="clause-body">
+<p><strong>3.1.</strong> Администрация ASKA VPN заявляет о необходимости <strong>соблюдения действующего законодательства Российской Федерации</strong>, а также иных обязательных норм, применимых к работе Сервиса. В частности, учитываются требования Федерального закона № 149-ФЗ «Об информации, информационных технологиях и о защите информации» и законодательства о персональных данных.</p>
+<p><strong>3.2.</strong> Сервис предназначен для защиты соединений, приватности и безопасной работы с сетями. Он <strong>не предназначен для организации противоправной деятельности, нарушения законных ограничений доступа к информации либо распространения запрещённых материалов</strong>.</p>
+<p><strong>3.3.</strong> Пользователь обязан соблюдать законодательство РФ, если оно применимо к его действиям, а также законы страны своего нахождения и соответствующие требования юрисдикций, через инфраструктуру которых проходит соединение.</p>
+<p><strong>3.4.</strong> Администрация вправе принимать меры по соблюдению обязательных законных требований уполномоченных органов в установленном порядке. Настоящие правила не предоставляют пользователю разрешения на действия, запрещённые законом.</p>
+<div class="clause-note">Наличие активного VPN-подключения не освобождает от ответственности за совершаемые в сети действия.</div>
+</div>
+</article><article class="clause" id="section-4">
+<header class="clause-top"><div class="clause-num">04</div><div><p class="clause-eyebrow">Zero Tolerance / Abuse</p><h2>Строгие запреты на использование</h2></div></header>
+<div class="clause-body">
+<p><strong>4.1.</strong> При использовании ASKA VPN <strong>категорически запрещается</strong>:</p>
+<ul>
+<li>организовывать DDoS/DoS-атаки, взлом, несанкционированное сканирование узлов или портов, подбор паролей и эксплуатацию уязвимостей;</li>
+<li>распространять вредоносное ПО, создавать ботнеты, проводить фишинговые кампании, мошеннические операции и рассылку спама;</li>
+<li>размещать или передавать материалы, распространение которых запрещено применимым законодательством, включая материалы сексуального насилия над детьми, материалы террористического и экстремистского характера;</li>
+<li>нарушать авторские, смежные права и другие охраняемые законом права третьих лиц;</li>
+<li>использовать Сервис для незаконной торговли, обмана, обхода финансовых ограничений в нарушение применимого закона или других противоправных действий;</li>
+<li>организовывать публичные прокси, VPN-шлюзы для третьих лиц, массовую перепродажу, передачу персональных ключей или совместное использование сверх лимитов тарифа;</li>
+<li>обходить ограничения тарифа, злоупотреблять автоматизацией, искусственно увеличивать нагрузку либо вмешиваться в работу серверов, мониторинга и механизмов защиты;</li>
+<li>совершать массовый парсинг, рассылки, P2P-обмен и иные ресурсоёмкие операции, нарушающие закон, правила хостинг-провайдеров или создающие угрозу работе сети.</li>
+</ul>
+<p><strong>4.2.</strong> Подозрение в нарушении может стать основанием для немедленных временных защитных мер. Подтверждённое нарушение — для приостановки или прекращения доступа, в том числе на платном тарифе, с урегулированием денежных требований в установленном законом порядке.</p>
+</div>
+</article><article class="clause" id="section-5">
+<header class="clause-top"><div class="clause-num">05</div><div><p class="clause-eyebrow">Fair Use / Infrastructure</p><h2>Разумное использование ресурсов</h2></div></header>
+<div class="clause-body">
+<p><strong>5.1.</strong> Пользователь обязан использовать соединение добросовестно и не мешать работе других пользователей. Объявленный как «безлимитный» тариф, если такой предлагается, не означает разрешения на злоупотребление сетевой и вычислительной инфраструктурой.</p>
+<p><strong>5.2.</strong> Для обеспечения устойчивости сети Администрация может применять технические лимиты, ограничение параллельных подключений, управление нагрузкой, антиспам- и анти-DDoS-фильтры, а при угрозе стабильности — временно приостанавливать отдельные сессии.</p>
+<p><strong>5.3.</strong> Запрещено пытаться отключать или обходить средства защиты, подменять параметры доступа, использовать чужие учётные данные, скрывать массовое коммерческое применение либо использовать уязвимости инфраструктуры.</p>
+<p><strong>5.4.</strong> Для выявления злоупотреблений могут использоваться минимально необходимые технические сигналы, предусмотренные политикой обработки данных. Сам по себе выбор тарифа не даёт права на действия, перечисленные в разделе 4.</p>
+</div>
+</article><article class="clause" id="section-6">
+<header class="clause-top"><div class="clause-num">06</div><div><p class="clause-eyebrow">Enforcement / Abuse Reports</p><h2>Блокировки и порядок реагирования</h2></div></header>
+<div class="clause-body">
+<p><strong>6.1.</strong> Администрация может <strong>без предварительного уведомления</strong> временно ограничить подключение, отозвать ключ либо приостановить учётную запись при признаках атаки, компрометации ключа, нарушении правил, законном требовании компетентного органа или обоснованной жалобе от поставщика инфраструктуры.</p>
+<p><strong>6.2.</strong> При подтверждении серьёзного нарушения либо его повторении доступ может быть прекращён. Защитные меры могут действовать до завершения проверки; Администрация вправе запросить необходимые сведения для разбора инцидента.</p>
+<p><strong>6.3.</strong> Возможность пересмотра блокировки и рассмотрения требований по платному тарифу предоставляется через <a href="https://t.me/askavpn_bot" rel="noopener noreferrer" target="_blank">@askavpn_bot</a>. Обращения рассматриваются с учётом характера нарушения, имеющихся данных и применимого законодательства.</p>
+<div class="clause-note">Срочные меры безопасности не равнозначны автоматическому лишению пользователя законных прав на возврат средств или предъявление требований по качеству платной услуги.</div>
+</div>
+</article><article class="clause" id="section-7">
+<header class="clause-top"><div class="clause-num">07</div><div><p class="clause-eyebrow">Billing / Refunds</p><h2>Оплата, прекращение и возвраты</h2></div></header>
+<div class="clause-body">
+<p><strong>7.1.</strong> До оплаты пользователю должны быть доступны существенные условия выбранного платного тарифа: цена, срок, ключевые ограничения и, при наличии, правила продления. Платёж означает согласие с указанными для заказа условиями.</p>
+<p><strong>7.2.</strong> Платный доступ действует в течение оплаченного срока, если иное прямо не предусмотрено условиями конкретного предложения. Продление и регулярные списания допускаются только на условиях, сообщённых пользователю при оформлении соответствующего способа оплаты.</p>
+<p><strong>7.3.</strong> Пользователь вправе обращаться за прекращением платного доступа и возвратом денежных средств. <strong>Рассмотрение таких требований и расчёт подлежащих возврату сумм осуществляются в соответствии с применимым законодательством</strong>, в том числе обязательными нормами о возмездном оказании услуг и защите прав потребителей.</p>
+<p><strong>7.4.</strong> При ошибочном платеже, непредоставлении оплаченного доступа, существенной неисправности либо спорном списании необходимо обратиться в официальный бот с данными заказа, не раскрывая реквизиты банковской карты или пароли. При наличии права на возврат он производится в предусмотренном законом порядке.</p>
+<p><strong>7.5.</strong> Действия пользователя, нарушающие Условия, могут повлечь прекращение доступа независимо от вида тарифа. Это положение не отменяет обязательных требований закона при разрешении денежных споров.</p>
+</div>
+</article><article class="clause" id="section-8">
+<header class="clause-top"><div class="clause-num">08</div><div><p class="clause-eyebrow">Availability / No SLA</p><h2>Работа сервиса и технические ограничения</h2></div></header>
+<div class="clause-body">
+<p><strong>8.1.</strong> Сервис предоставляется <strong>«КАК ЕСТЬ» (AS IS)</strong> и <strong>«ПО МЕРЕ ДОСТУПНОСТИ» (AS AVAILABLE)</strong> с учётом прямо заявленных характеристик оплаченного тарифа и прав, гарантированных законом.</p>
+<p><strong>8.2.</strong> Возможны плановые и внеплановые работы, изменения маршрутов, серверных адресов и конфигураций, сбои дата-центров, проблемы у операторов связи, ограничения со стороны интернет-сервисов, Роскомнадзора и технических средств фильтрации трафика.</p>
+<p><strong>8.3.</strong> Если иное прямо не указано при продаже, Администрация не обещает конкретный постоянный IP-адрес, фиксированную скорость, нулевые задержки, непрерывную работу 24/7 и отсутствие внешних блокировок. При технической возможности пользователям предоставляется информация через официальный <a href="https://status.aska.not-a-projects.xyz/" rel="noopener noreferrer" target="_blank">статус-сервис</a>.</p>
+<p><strong>8.4.</strong> Бесплатный доступ может быть ограничен по ресурсам без уведомления. Изменения оплаченной услуги, влияющие на её существенные условия, регулируются договором и применимыми обязательными нормами.</p>
+</div>
+</article><article class="clause" id="section-9">
+<header class="clause-top"><div class="clause-num">09</div><div><p class="clause-eyebrow">Privacy / Data</p><h2>Конфиденциальность и технические данные</h2></div></header>
+<div class="clause-body">
+<p><strong>9.1.</strong> Для работы Telegram-бота, выдачи доступа, тарификации, предотвращения злоупотреблений и поддержки Сервису <strong>могут требоваться</strong> отдельные технические сведения: Telegram ID, срок и статус подписки, идентификаторы заказов, параметры доступа, объём использования и служебные показатели соединений.</p>
+<p><strong>9.2.</strong> Обработка персональных данных, когда она осуществляется, должна соответствовать применимым требованиям законодательства, включая Федеральный закон № 152-ФЗ «О персональных данных». Конкретные категории данных, сроки хранения, основания обработки и права субъектов должны быть описаны в отдельной политике конфиденциальности.</p>
+<p><strong>9.3.</strong> Не следует направлять в поддержку пароли, полные данные банковских карт, коды подтверждения и иные чувствительные секреты. Пользователь обязан бережно хранить конфигурации и незамедлительно сообщать о вероятной компрометации ключей.</p>
+</div>
+</article><article class="clause" id="section-10">
+<header class="clause-top"><div class="clause-num">10</div><div><p class="clause-eyebrow">Liability / Updates</p><h2>Ответственность, изменения и поддержка</h2></div></header>
+<div class="clause-body">
+<p><strong>10.1.</strong> Пользователь лично отвечает за законность своих действий, соблюдение настоящих Условий и предотвращение неправомерного использования предоставленных ему конфигураций.</p>
+<p><strong>10.2.</strong> В пределах, допускаемых законом, Администрация не отвечает за обстоятельства вне её разумного контроля, включая действия операторов связи, хостинг-провайдеров, владельцев внешних сайтов и государственных органов. <strong>Этот пункт не исключает ответственность, которую запрещено исключать по закону</strong>, и не отменяет обязательных прав покупателей платного тарифа.</p>
+<p><strong>10.3.</strong> Администрация может обновлять настоящие Условия с публикацией новой редакции и даты её вступления в силу. Изменения, затрагивающие уже оплаченные услуги, применяются с учётом согласованных условий заказа и требований закона.</p>
+<p><strong>10.4.</strong> По вопросам работы сервиса, претензиям, пересмотру ограничений и оплатам обращайтесь через официальный Telegram-бот <a href="https://t.me/askavpn_bot" rel="noopener noreferrer" target="_blank">@askavpn_bot</a>.</p>
+</div>
+</article></div>
+</div>
+<section aria-label="Заключение и контакты" class="closing">
+<div class="closing-kicker">End of Document // 10</div>
+<h2>Соблюдайте правила. Берегите инфраструктуру.</h2>
+<p>Бесплатный и платный доступ к ASKA VPN доступны только при соблюдении правил и законодательства. При возникновении вопросов об оплате, ограничениях или работе сервиса обратитесь в официальный бот.</p>
+<div class="actions">
+<a class="btn btn--primary" href="https://t.me/askavpn_bot" rel="noopener noreferrer" target="_blank">Открыть Telegram-бота ↗</a>
+<a class="btn btn--outline" href="#top">↑ Вернуться наверх</a>
+</div>
+</section>
 </main>
-
-<!-- JAVASCRIPT FOR TABS TOGGLE -->
+<footer class="footer">
+<div class="footer-meta">© 2026 ASKA VPN // Secure Tunnel<br/>Legal Protocol // Unit-02</div>
+<div class="footer-links">
+<a href="https://gate-v1.aska.not-a-projects.xyz/">Главная</a>
+<a href="https://status.aska.not-a-projects.xyz/" rel="noopener noreferrer" target="_blank">Статус</a>
+<a href="https://t.me/askavpn_bot" rel="noopener noreferrer" target="_blank">@askavpn_bot</a>
+</div>
+</footer>
+</div>
 <script>
-function switchTab(tab) {
-    const privacySec = document.getElementById('privacy-section');
-    const termsSec = document.getElementById('terms-section');
-    const privacyBtn = document.getElementById('tab-privacy-btn');
-    const termsBtn = document.getElementById('tab-terms-btn');
-
-    const activeBtnClasses = ['bg-sky-500', 'text-white', 'shadow-lg', 'shadow-sky-500/25', 'border-sky-400/30'];
-    const inactiveBtnClasses = ['bg-white/5', 'text-slate-400', 'hover:text-white', 'hover:bg-white/10', 'border-white/5'];
-
-    if (tab === 'privacy') {
-        privacySec.classList.remove('hidden');
-        termsSec.classList.add('hidden');
-
-        privacyBtn.classList.add(...activeBtnClasses);
-        privacyBtn.classList.remove(...inactiveBtnClasses);
-
-        termsBtn.classList.remove(...activeBtnClasses);
-        termsBtn.classList.add(...inactiveBtnClasses);
-    } else {
-        privacySec.classList.add('hidden');
-        termsSec.classList.remove('hidden');
-
-        termsBtn.classList.add(...activeBtnClasses);
-        termsBtn.classList.remove(...inactiveBtnClasses);
-
-        privacyBtn.classList.remove(...activeBtnClasses);
-        privacyBtn.classList.add(...inactiveBtnClasses);
-    }
-}
-</script>
-
+    (() => {
+      const progress = document.getElementById('progress');
+      const links = [...document.querySelectorAll('.toc a')];
+      const sections = links.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+      let ticking = false;
+      function update() {
+        const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+        progress.style.width = `${Math.min(100, Math.max(0, window.scrollY / max * 100))}%`;
+        let current = sections[0]?.id;
+        for (const section of sections) {
+          if (section.getBoundingClientRect().top <= Math.max(170, window.innerHeight * .28)) current = section.id;
+        }
+        links.forEach(link => {
+          const active = link.getAttribute('href') === '#' + current;
+          link.classList.toggle('active', active);
+          if (active) link.setAttribute('aria-current', 'location');
+          else link.removeAttribute('aria-current');
+        });
+        ticking = false;
+      }
+      window.addEventListener('scroll', () => {
+        if (ticking) return;
+        ticking = true;
+        window.requestAnimationFrame(update);
+      }, { passive: true });
+      window.addEventListener('resize', update, { passive: true });
+      update();
+    })();
+  </script>
 </body>
 </html>
